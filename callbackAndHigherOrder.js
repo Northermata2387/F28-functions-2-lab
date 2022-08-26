@@ -79,25 +79,25 @@ const last = (arr, callBack) => callBack(arr[arr.length - 1])
 
 // CODE HERE 
 
-// const contains = (arr, names, callback) =>  {
-//   if (arr.includes(names) === true) {
-//   callback(true)
-//   } else {
-//     callback(false)
-//   }
-// }
+const contains = (arr, names, callback) =>  {
+  if (arr.includes(names) === true) {
+  callback(true)
+  } else {
+    callback(false)
+  }
+}
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// contains(names, 'Colt', result => {
-//   if(result === true){
-//     console.log('Colt is in the array')
-//   } else {
-//     console.log('Colt is not in the array')
-//   }
-// })
+contains(names, 'Colt', result => {
+  if(result === true){
+    // console.log('Colt is in the array')
+  } else {
+    // console.log('Colt is not in the array')
+  }
+})
 
 
 
@@ -123,8 +123,6 @@ function uniq(arr, cb){
   cb(arr)
 }
 
-uniq(names, uniqArr => console.log(`The new names array with all the duplicate items removed is ${uniqArr}`))
-
 
 /*
   Invoke the uniq function, passing in the names array from above and a callback function.
@@ -134,6 +132,7 @@ uniq(names, uniqArr => console.log(`The new names array with all the duplicate i
 */
 
 // CODE HERE
+// uniq(names, uniqArr => console.log(`The new names array with all the duplicate items removed is ${uniqArr}`))
 
 
 
@@ -146,6 +145,7 @@ uniq(names, uniqArr => console.log(`The new names array with all the duplicate i
 */
 
 // CODE HERE 
+const each = (array, callback) => array.forEach((element, index) => callback(element, index))
 
 
 /*
@@ -156,7 +156,7 @@ uniq(names, uniqArr => console.log(`The new names array with all the duplicate i
 */
 
 // CODE HERE
-
+each(names, (item, index) => `The item at index ${index} is ${item}`)
 
 ////////// PROBLEM 7 //////////
 
@@ -189,7 +189,13 @@ var users = [
 // Do not edit the code above.
 
 // CODE HERE 
-
+const getUserById = (array, id, callback) => {
+  for ( let i = 0; i < array.length; i++) {
+    if (array[i].id === id) {
+      return callback(array[i])
+    }
+  }
+} 
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
@@ -216,6 +222,11 @@ var users = [
 */
 
 // CODE HERE
+const addingFactory = x => {
+  return function(y) {
+    return x + y
+  }
+}
 
 /*
   Now that you have addingFactory, you can create other
@@ -230,6 +241,7 @@ var users = [
 */
 
 // CODE HERE
+const addTen = addingFactory(10)
 
 /*
   Now the inner function is stored in the addTen variable!
@@ -242,6 +254,8 @@ var users = [
 */
 
 // CODE HERE
+// console.log(addTen(5))
+// console.log(addTen(8435))
 
 /*
   Let's make another function from the addingFactory.
@@ -255,3 +269,7 @@ var users = [
 */
 
 // CODE HERE
+const addNUMBER = addingFactory(20)
+
+// console.log(addNUMBER(5))
+// console.log(addNUMBER(8430))
